@@ -70,13 +70,22 @@
     </div>
 
     <script>
+        let siButtonSize = 1.2; // Initial font size for the "Sí" button
+
         function respuesta(respuesta) {
             if (respuesta === 'si') {
                 alert('Ahora juguemos de nuevo  ❤️');
             } else {
                 alert('Enserio que me caes mal :) nojaooo');
+                aumentarTamanoSiButton();
             }
         }
+
+        function aumentarTamanoSiButton() {
+            siButtonSize *=4 ; // Multiply the font size by 2
+            document.getElementById('si-button').style.fontSize = siButtonSize + 'rem';
+        }
+
         setInterval(moverBotonNoAleatoriamente, 500);
 
         function moverBotonNoAleatoriamente() {
