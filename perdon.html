@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #si-button {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        #si-button:hover {
+            background-color: #218838;
+            transform: scale(1.1);
+        }
+
+        #no-button {
+            background-color: #dc3545;
+            color: #fff;
+            position: absolute;
+        }
+
+        #no-button:hover {
+            background-color: #c82333;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me perdonas?</h1>
+    <div class="button-container">
+        <button class="button" id="si-button" onclick="respuesta('si')">Sí</button>
+        <button class="button" id="no-button" onclick="respuesta('no')">No</button>
+    </div>
+
+    <script>
+        function respuesta(respuesta) {
+            if (respuesta === 'si') {
+                alert('Ahora juguemos de nuevo  ❤️');
+            } else {
+                alert('Enserio que me caes mal :) nojaooo');
+            }
+        }
+        setInterval(moverBotonNoAleatoriamente, 500);
+
+        function moverBotonNoAleatoriamente() {
+            var botonNo = document.getElementById('no-button');
+            var maxX = window.innerWidth - botonNo.offsetWidth;
+            var maxY = window.innerHeight - botonNo.offsetHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            botonNo.style.left = randomX + 'px';
+            botonNo.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
